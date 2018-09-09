@@ -1,26 +1,38 @@
 html{
     height:100%;
+    width:100%;
     padding:0;
 }
 
 body{
     background-color: #10313c;
+
     height:100%;
+    width:100%;
     padding:0;
     margin:0;
-
+    display:inline-block;
+    overflow:hidden;
 }
 
 
 main{     
-    /* height:100%; */
-    /* border: 2px dotted red; */
-    background-image: url(images/houses.gif);
-    background-size:100%; 
+    border: 0px solid yellow; 
     display:inline-block;
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+    overflow:hidden;
+}
 
+
+
+.houses{
+    background-color: #3a9ed8;
+    border:0px solid red;
+    width:100%;
     -webkit-animation: rotation 80s infinite linear;
-
 }
 
 

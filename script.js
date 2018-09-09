@@ -2,30 +2,26 @@
 
 
 
-const image = document.getElementsByTagName("main")[0];
-const imageScale = 1.85;
+const houses = document.getElementsByClassName("houses")[0];
+const imageScale = 1.8;
 let imageSize;
 let topMargin;
 let leftMargin;
 
 
+
+
 function checkDimensions(){
-    //console.log("checkDimensions()");
-    
-    //const globalWidth = document.body.clientWidth;
-    //const globalHeight = document.body.clientHeight;
+
+    console.log("checkDimensions()");
 
     const globalWidth = window.innerWidth;
     const globalHeight = window.innerHeight;
 
-    // const globalWidth = screen.width;
-    // const globalHeight = screen.height;
-
-
     //const topMargin;
     console.log(" ");
-    console.log(`the doc width = ${globalWidth}` );
-    console.log(`the doc height = ${globalHeight}` );
+    console.log(`viewport width = ${globalWidth}` );
+    console.log(`viewport height = ${globalHeight}` );
 
     if(globalWidth < globalHeight){
         imageSize = (globalWidth*imageScale);
@@ -35,20 +31,22 @@ function checkDimensions(){
         imageSize = (globalWidth*imageScale);
     }
 
-    //console.log(`imageSize = ${imageSize}`);
-
-   topMargin = getTopMargin(imageSize, globalHeight);
-   leftMargin = getLeftMargin(imageSize, globalWidth);
+    console.log(`imageSize = ${imageSize}`);
 
 
-    //console.log(`imageSize = ${imageSize}` );
 
-    image.style.width = (imageSize) + "px";
-    image.style.height = (imageSize) + "px";
-    image.style.marginTop = topMargin + "px";
-    image.style.marginLeft = leftMargin + "px";
+        topMargin = getTopMargin(imageSize, globalHeight);
+        leftMargin = getLeftMargin(imageSize, globalWidth);
+
+
+         houses.style.width = (imageSize) + "px";
+         houses.style.height = (imageSize) + "px";
+        houses.style.marginTop = topMargin + "px";
+        houses.style.marginLeft = leftMargin + "px";
 
 }
+
+
 
 
 
@@ -57,16 +55,19 @@ function getLeftMargin(imageSize, globalWidth){
     
     if(imageSize > globalWidth){
 
-        //console.log("CONDITION MET!!!!");
-        var margLeft = (0 - (imageSize - globalWidth)/2);
+        console.log("the image is wider than the viewport");      
+        var margLeft = 0 - ((imageSize - globalWidth)/2)
         console.log(`margLeft = ${margLeft}`);
+
         return margLeft;
 
     }
 
     else if(globalWidth > imageSize){
 
+        console.log("the viewport is wider than the image");
         margLeft = (globalWidth - imageSize)/2;
+        
         return margLeft;
 
     }
@@ -76,26 +77,56 @@ function getLeftMargin(imageSize, globalWidth){
 }
 
 
+
 function getTopMargin(imageSize, globalHeight){
     console.log(`getTopMargin(${imageSize}, ${globalHeight})`);
     
-    let margTop;
-
     if(imageSize > globalHeight){
 
-        //console.log("CONDITION MET!!!!");
-        margTop = (0 - (imageSize - globalHeight)/2);
+        console.log("the image is taller than the viewport");      
+        var margTop = 0 - ((imageSize - globalHeight)/2);
         console.log(`margTop = ${margTop}`);
+
         return margTop;
 
-    } else if(globalHeight > imageSize){
+    }
 
+    else if(globalHeight > imageSize){
+
+        console.log("the viewport is taller than the image");
         margTop = (globalHeight - imageSize)/2;
+        
         return margTop;
 
-    } else return 0;
+    }
+
+    return 0;
 
 }
+
+
+
+
+
+// function getTopMargin(imageSize, globalHeight){
+//     console.log(`getTopMargin(${imageSize}, ${globalHeight})`);
+    
+//     let margTop;
+
+//     if(imageSize > globalHeight){
+
+//         margTop = (0 - (imageSize - globalHeight)/2);
+//         console.log(`margTop = ${margTop}`);
+//         return margTop;
+
+//     } else if(globalHeight > imageSize){
+
+//         margTop = (globalHeight - imageSize)/2;
+//         return margTop;
+
+//     } else return 0;
+
+// }
 
 
 
