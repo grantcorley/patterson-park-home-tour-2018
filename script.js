@@ -1,14 +1,12 @@
 //console.log('js is ready');
 
+//const houses = document.getElementsByClassName("houses")[0];
 
-
-const houses = document.getElementsByClassName("houses")[0];
-const imageScale = 1.8;
+const image = document.getElementsByTagName("main")[0];
+const imageScale = 1.5;
 let imageSize;
 let topMargin;
 let leftMargin;
-
-
 
 
 function checkDimensions(){
@@ -39,10 +37,10 @@ function checkDimensions(){
         leftMargin = getLeftMargin(imageSize, globalWidth);
 
 
-         houses.style.width = (imageSize) + "px";
-         houses.style.height = (imageSize) + "px";
-        houses.style.marginTop = topMargin + "px";
-        houses.style.marginLeft = leftMargin + "px";
+         image.style.width = (imageSize) + "px";
+         image.style.height = (imageSize) + "px";
+         image.style.marginTop = topMargin + "px";
+         image.style.marginLeft = leftMargin + "px";
 
 }
 
@@ -100,33 +98,10 @@ function getTopMargin(imageSize, globalHeight){
 
     }
 
-    return 0;
+    else return 0;
 
 }
 
-
-
-
-
-// function getTopMargin(imageSize, globalHeight){
-//     console.log(`getTopMargin(${imageSize}, ${globalHeight})`);
-    
-//     let margTop;
-
-//     if(imageSize > globalHeight){
-
-//         margTop = (0 - (imageSize - globalHeight)/2);
-//         console.log(`margTop = ${margTop}`);
-//         return margTop;
-
-//     } else if(globalHeight > imageSize){
-
-//         margTop = (globalHeight - imageSize)/2;
-//         return margTop;
-
-//     } else return 0;
-
-// }
 
 
 
